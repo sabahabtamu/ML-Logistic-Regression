@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import joblib
-import pandas as pd
+import numpy as np
 import os
 
 
@@ -50,9 +50,9 @@ def predict_diabetes(data: DiabetesInput):
         raise HTTPException(status_code=500, detail="Model not loaded on server")
 
     try:
-        input_df = pd.DataFrame([data.model_dump()])
-        prediction = int(model.predict(input_df)[0])
-        probability = float(model.predict_proba(input_df)[0][1]) if hasattr(model, "predict_proba") else 0.5
+        input_data = [list(data.model_dump().values())]
+        prediction = int(model.predict(input_data)[0])
+        probability = float(model.predict_proba(input_data)[0][1]) if hasattr(model, "predict_proba") else 0.5
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
