@@ -86,7 +86,7 @@ function App() {
     <div className="App">
       <div className="container">
         <header>
-          <h1>🩺 Diabetes Prediction System (Using Logistic Regression)</h1>
+          <h1>🩺 Diabetes Prediction System</h1>
           <p className="subtitle">
             Enter patient clinical data below to generate a real-time diabetes prediction
           </p>
