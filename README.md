@@ -1,1 +1,1 @@
-# ML-Logistic-Regression
+# Diabetes Prediction System - Logistic Regression
